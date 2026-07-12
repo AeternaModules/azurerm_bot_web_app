@@ -9,12 +9,16 @@ Required:
     - sku
 Optional:
     - developer_app_insights_api_key
+    - developer_app_insights_api_key_key_vault_id (alternative to developer_app_insights_api_key - read from Key Vault instead)
+    - developer_app_insights_api_key_key_vault_secret_name (alternative to developer_app_insights_api_key - read from Key Vault instead)
     - developer_app_insights_application_id
     - developer_app_insights_key
     - display_name
     - endpoint
     - luis_app_ids
     - luis_key
+    - luis_key_key_vault_id (alternative to luis_key - read from Key Vault instead)
+    - luis_key_key_vault_secret_name (alternative to luis_key - read from Key Vault instead)
     - microsoft_app_tenant_id
     - microsoft_app_type
     - microsoft_app_user_assigned_identity_id
@@ -22,22 +26,26 @@ Optional:
 EOT
 
   type = map(object({
-    location                                = string
-    microsoft_app_id                        = string
-    name                                    = string
-    resource_group_name                     = string
-    sku                                     = string
-    developer_app_insights_api_key          = optional(string)
-    developer_app_insights_application_id   = optional(string)
-    developer_app_insights_key              = optional(string)
-    display_name                            = optional(string)
-    endpoint                                = optional(string)
-    luis_app_ids                            = optional(list(string))
-    luis_key                                = optional(string)
-    microsoft_app_tenant_id                 = optional(string)
-    microsoft_app_type                      = optional(string)
-    microsoft_app_user_assigned_identity_id = optional(string)
-    tags                                    = optional(map(string))
+    location                                             = string
+    microsoft_app_id                                     = string
+    name                                                 = string
+    resource_group_name                                  = string
+    sku                                                  = string
+    developer_app_insights_api_key                       = optional(string)
+    developer_app_insights_api_key_key_vault_id          = optional(string)
+    developer_app_insights_api_key_key_vault_secret_name = optional(string)
+    developer_app_insights_application_id                = optional(string)
+    developer_app_insights_key                           = optional(string)
+    display_name                                         = optional(string)
+    endpoint                                             = optional(string)
+    luis_app_ids                                         = optional(list(string))
+    luis_key                                             = optional(string)
+    luis_key_key_vault_id                                = optional(string)
+    luis_key_key_vault_secret_name                       = optional(string)
+    microsoft_app_tenant_id                              = optional(string)
+    microsoft_app_type                                   = optional(string)
+    microsoft_app_user_assigned_identity_id              = optional(string)
+    tags                                                 = optional(map(string))
   }))
   validation {
     condition = alltrue([
