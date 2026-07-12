@@ -1,3 +1,7 @@
+output "bot_web_apps_id" {
+  description = "Map of id values across all bot_web_apps, keyed the same as var.bot_web_apps"
+  value       = { for k, v in azurerm_bot_web_app.bot_web_apps : k => v.id }
+}
 output "bot_web_apps_developer_app_insights_api_key" {
   description = "Map of developer_app_insights_api_key values across all bot_web_apps, keyed the same as var.bot_web_apps"
   value       = { for k, v in azurerm_bot_web_app.bot_web_apps : k => v.developer_app_insights_api_key }
