@@ -13,6 +13,7 @@ resource "azurerm_bot_web_app" "bot_web_apps" {
 
   location                                = each.value.location
   microsoft_app_id                        = each.value.microsoft_app_id
+  microsoft_app_type                      = each.value.microsoft_app_type
   name                                    = each.value.name
   resource_group_name                     = each.value.resource_group_name
   sku                                     = each.value.sku
@@ -24,7 +25,6 @@ resource "azurerm_bot_web_app" "bot_web_apps" {
   luis_app_ids                            = each.value.luis_app_ids
   luis_key                                = each.value.luis_key != null ? each.value.luis_key : try(data.azurerm_key_vault_secret.luis_key[each.key].value, null)
   microsoft_app_tenant_id                 = each.value.microsoft_app_tenant_id
-  microsoft_app_type                      = each.value.microsoft_app_type
   microsoft_app_user_assigned_identity_id = each.value.microsoft_app_user_assigned_identity_id
   tags                                    = each.value.tags
 }

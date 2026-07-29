@@ -4,6 +4,7 @@ Map of bot_web_apps, attributes below
 Required:
     - location
     - microsoft_app_id
+    - microsoft_app_type
     - name
     - resource_group_name
     - sku
@@ -20,7 +21,6 @@ Optional:
     - luis_key_key_vault_id (alternative to luis_key - read from Key Vault instead)
     - luis_key_key_vault_secret_name (alternative to luis_key - read from Key Vault instead)
     - microsoft_app_tenant_id
-    - microsoft_app_type
     - microsoft_app_user_assigned_identity_id
     - tags
 EOT
@@ -28,6 +28,7 @@ EOT
   type = map(object({
     location                                             = string
     microsoft_app_id                                     = string
+    microsoft_app_type                                   = string
     name                                                 = string
     resource_group_name                                  = string
     sku                                                  = string
@@ -43,7 +44,6 @@ EOT
     luis_key_key_vault_id                                = optional(string)
     luis_key_key_vault_secret_name                       = optional(string)
     microsoft_app_tenant_id                              = optional(string)
-    microsoft_app_type                                   = optional(string)
     microsoft_app_user_assigned_identity_id              = optional(string)
     tags                                                 = optional(map(string))
   }))
